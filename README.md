@@ -2,6 +2,19 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Explanation for the project
+
+This is a project for BMI calculation. Users can register, login and calculate their body mass index.
+In this project i used the following technologies;
+HTML
+CSS
+JS
+React
+Redux
+Tailwind
+
+AUTHOR : Ayşenur Can
+
 ## Available Scripts
 
 In the project directory, you can run:

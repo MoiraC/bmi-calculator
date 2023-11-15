@@ -1,3 +1,9 @@
+/*
+project name: BMI Calculator
+project author: Ayşenur Can
+project date: 16.11.2023
+project version: v1.0.0 
+*/
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
