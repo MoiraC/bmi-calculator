@@ -6,12 +6,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This is a project for BMI calculation. Users can register, login and calculate their body mass index.
 In this project i used the following technologies;
-HTML
-CSS
-JS
-React
-Redux
-Tailwind
+HTML,
+CSS,
+JS,
+React,
+Redux,
+Tailwind,
 
 AUTHOR : Ayşenur Can
 
