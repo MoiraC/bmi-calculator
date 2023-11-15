@@ -1,7 +1,29 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
+import { allUsers, login } from '../features/user/userSlice';
 
 function Login() {
+    const navigate = useNavigate();
+    const [warning, setWarning] = useState(false);
+    const dispatch = useDispatch()
+
+    const loginHandler = (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const loginName = formData.get("email");
+        const loginPassword = formData.get("password");
+
+        const currentUser = allUsers.find(u => u.name === loginName && loginPassword);
+
+        if (currentUser !== undefined) {
+            dispatch(login(currentUser.id))
+            navigate("/calculator");
+        } else {
+            setWarning(true);
+        }
+    }
+
     return (
         <div className='flex flex-col items-center justify-around h-[70vh]'>
             <div className='flex flex-col items-center'>
@@ -11,7 +33,7 @@ function Login() {
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                                 Giriş yap
                             </h1>
-                            <form className='w-96'>
+                            <form className='w-96' onSubmit={loginHandler}>
                                 <div className="mb-6">
                                     <label
                                         htmlFor="email"
@@ -22,9 +44,10 @@ function Login() {
                                     <input
                                         type="email"
                                         id="email"
+                                        name='email'
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder="name@flowbite.com"
-                                        required=""
+                                        required="true"
                                     />
                                 </div>
                                 <div className="mb-6">
@@ -37,9 +60,10 @@ function Login() {
                                     <input
                                         type="password"
                                         id="password"
+                                        name='password'
                                         placeholder='*********'
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        required=""
+                                        required="true"
                                     />
                                 </div>
                                 <div className="flex items-start mb-6">
@@ -63,12 +87,20 @@ function Login() {
                                     type="submit"
                                     className="text-white bg-purple-800 hover:bg-purple-900 focus:ring-4 focus:outline-none focus:ring-purple-800 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-purple-800 dark:hover:bg-purple-900 dark:focus:ring-purple-800"
                                 >
-                                    <Link to={"/calculator"}>Giriş yap</Link>
+                                    Giriş yap
                                 </button>
                             </form>
                         </div>
                     </div>
                 </section>
+
+                {warning && <div className='w-full  mt-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700'>
+                    <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                            Giriş bilgileri uyuşmuyor.
+                        </h1>
+                    </div>
+                </div>}
             </div>
         </div>
     )
