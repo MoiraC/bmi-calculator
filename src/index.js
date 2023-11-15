@@ -1,13 +1,12 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
-import Calculator from "./components/bmi/Calculator";
-import Main from "./components/Main";
 import Login from "./components/Login";
 import './index.css';
 import Register from "./components/Register";
 import store from './app/store'
 import { Provider } from 'react-redux'
+import CalculationPage from "./pages/CalculationPage";
 
 export default function App() {
   return (
@@ -15,11 +14,11 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Main />} />
-            <Route path="calculator" element={<Calculator />} />
+            <Route index element={<Login />} />
+            <Route path="calculator" element={<CalculationPage />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
-            <Route path="*" element={<Main />} />
+            <Route path="*" element={<Login />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -6,6 +6,7 @@ import { allUsers, login } from '../features/user/userSlice';
 function Login() {
     const navigate = useNavigate();
     const [warning, setWarning] = useState(false);
+    const userData = useSelector((state) => state.user);
     const dispatch = useDispatch()
 
     const loginHandler = (event) => {
@@ -14,7 +15,7 @@ function Login() {
         const loginName = formData.get("email");
         const loginPassword = formData.get("password");
 
-        const currentUser = allUsers.find(u => u.name === loginName && loginPassword);
+        const currentUser = userData.allUsers.find(u => u.name === loginName && loginPassword);
 
         if (currentUser !== undefined) {
             dispatch(login(currentUser.id))
@@ -47,7 +48,7 @@ function Login() {
                                         name='email'
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder="name@flowbite.com"
-                                        required="true"
+                                        required={true}
                                     />
                                 </div>
                                 <div className="mb-6">
@@ -63,7 +64,7 @@ function Login() {
                                         name='password'
                                         placeholder='*********'
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        required="true"
+                                        required={true}
                                     />
                                 </div>
                                 <div className="flex items-start mb-6">
@@ -73,7 +74,6 @@ function Login() {
                                             type="checkbox"
                                             defaultValue=""
                                             className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                                            required=""
                                         />
                                     </div>
                                     <label

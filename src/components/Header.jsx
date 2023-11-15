@@ -102,19 +102,9 @@ function Header() {
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               {/* Profile dropdown */}
               <div className="relative ml-3">
-                <div>
-                  <h1
-                    type="button"
-                    className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                    id="user-menu-button"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                  >
+                  <p className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
                     {user?.name}
-                  </h1>
-                
-                </div>
-               
+                  </p>
               </div>
              {user.currentUserId !== -1 && 
                 <button
