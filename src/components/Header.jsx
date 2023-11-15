@@ -5,7 +5,6 @@ import { logout } from '../features/user/userSlice';
 
 function Header() {
 
-  const [showProfileMenu, setShowProfileMenu] = useState(false);
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch()
 
@@ -75,7 +74,6 @@ function Header() {
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
-                  {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                   {user.currentUserId === -1 ? <>
                     <Link
                       to={"/login"}
@@ -109,7 +107,7 @@ function Header() {
              {user.currentUserId !== -1 && 
                 <button
                   onClick={() => dispatch(logout())}
-                 className='ml-4 bg-red-900 text-white rounded-md px-3 py-2 text-sm font-medium"'>
+                 className='ml-4 bg-purple-800 text-white rounded-md px-3 py-2 text-sm font-medium"'>
                   Çıkış Yap
                 </button> 
               }
