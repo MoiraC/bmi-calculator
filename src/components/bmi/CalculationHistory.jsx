@@ -4,7 +4,7 @@ import { removeCalculationByUser } from '../../features/user/calculationSlice';
 import ClearIcon from '@mui/icons-material/Clear';
 
 function CalculationHistory() {
-    
+
     const dispatch = useDispatch();
     //Reduxtan tüm calculation datalarını aldım
     const calculationData = useSelector((state) => state.calculation);
@@ -22,17 +22,17 @@ function CalculationHistory() {
                         <section className="bg-gray-50 dark:bg-gray-900 w-96">
                             <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                                   <div className='flex justify-between'>
+                                    <div className='flex justify-between'>
                                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                                             VKI Geçmişi
                                         </h1>
                                         <ClearIcon
-                                            sx={{ color: "white", ":hover": {color: "gray"}}}
+                                            sx={{ color: "white", ":hover": { color: "gray" } }}
                                             className="h-8 w-auto cursor-pointer"
                                             alt="Clear"
                                             onClick={() => dispatch(removeCalculationByUser(userData.currentUserId))}
                                         />
-                                   </div>
+                                    </div>
                                     <ul className="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
                                         {/* Her bir calculation için bir List itemı oluşturdum ve içinde datalarını gösterdim */}
                                         {

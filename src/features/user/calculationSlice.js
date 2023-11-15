@@ -3,11 +3,11 @@ import { createSlice } from '@reduxjs/toolkit'
 export const calculationSlice = createSlice({
   name: 'calculation',
   initialState: {
-    calculations: [{userId: 1, value: 23, date: new Date()}]
+    calculations: [{ userId: 1, value: 23, date: new Date() }]
   },
   reducers: {
     addCalculation: (state, action) => {
-      state.calculations = [...state.calculations, {...action.payload, date: new Date()}]
+      state.calculations = [...state.calculations, { ...action.payload, date: new Date() }]
     },
     removeCalculationByUser: (state, action) => {
       state.calculations = state.calculations.filter(calc => calc.userId !== action.payload)

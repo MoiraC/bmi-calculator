@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
-import { allUsers, login } from '../features/user/userSlice';
+import { login } from '../features/user/userSlice';
 
 function Login() {
     const navigate = useNavigate();

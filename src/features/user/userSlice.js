@@ -1,4 +1,4 @@
-import {createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 export const userSlice = createSlice({
   name: 'user',
@@ -6,14 +6,14 @@ export const userSlice = createSlice({
     currentUserId: -1,
     name: '',
     allUsers: [
-      {id: 1, name:"aysenur@aysenur.com", password:"123" },
+      { id: 1, name: "aysenur@aysenur.com", password: "123" },
     ]
   },
   reducers: {
     // Statedeki user bilgilerini temizledim.
     logout: (state) => {
-        state.currentUserId = -1;
-        state.name = "";
+      state.currentUserId = -1;
+      state.name = "";
     },
     // Girilen id yi şuanki user idsine eşitledim ve bu idye karşılık gelen ismi state de güncelledim
     login: (state, action) => {

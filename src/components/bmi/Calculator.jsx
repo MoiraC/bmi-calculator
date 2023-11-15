@@ -12,7 +12,7 @@ function Calculator() {
     const calculator = (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
-        
+
         const height = formData.get("height");
         const weight = formData.get("weight");
 
@@ -29,14 +29,14 @@ function Calculator() {
             setResult("Normal kiloda")
         else if (calculationResult > 24.9 && calculationResult <= 29.9)
             setResult("Fazla kilolu")
-        else if (calculationResult >29.9 && calculationResult <= 34.9)
+        else if (calculationResult > 29.9 && calculationResult <= 34.9)
             setResult("1. derece Obezite")
-        else if (calculationResult >34.9 && calculationResult <= 39.9)
+        else if (calculationResult > 34.9 && calculationResult <= 39.9)
             setResult("2. derece Obezite")
         else
             setResult("3. derece Obezite")
 
-        dispatch(addCalculation({userId: userData.currentUserId, value: calculationResult}))
+        dispatch(addCalculation({ userId: userData.currentUserId, value: calculationResult }))
         setCalculation(calculationResult);
     }
 
