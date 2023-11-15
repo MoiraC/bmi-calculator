@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Header() {
 
@@ -64,38 +65,32 @@ const [showProfileMenu, setShowProfileMenu] = useState(false);
               <div className="flex flex-shrink-0 items-center">
                 <img
                   className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                  alt="Your Company"
+                  src="\bmi-logo-circle.png"
+                  alt="BMI"
                 />
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
                   {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                  <a
-                    href="#"
+                  <Link
+                    to="/calculator"
                     className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
                     aria-current="page"
                   >
-                    Dashboard
-                  </a>
-                  <a
-                    href="#"
+                    Hesaplayıcı
+                  </Link>
+                  <Link
+                    to={"/login"}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
-                    Team
-                  </a>
-                  <a
-                    href="#"
+                    Giriş yap
+                  </Link>
+                  <Link
+                    to={"/register"}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
-                    Projects
-                  </a>
-                  <a
-                    href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                  >
-                    Calendar
-                  </a>
+                    Hesap oluştur
+                  </Link>               
                 </div>
               </div>
             </div>

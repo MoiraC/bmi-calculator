@@ -7,7 +7,7 @@ import Register from './Register'
 function Main() {
   return (
     <div className='grid h-screen place-items-center mt-[-10rem]'>
-    <Register/>
+    <Login/>
     
     </div>
   )
